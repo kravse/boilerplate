@@ -4,7 +4,7 @@ boilerplate
 Boilerplate with Gulp Bower Jade Stylus and CoffeeScript 
 
 
-This is a quick little boilerplate using Gulp to streamline jade, stylus and coffeescript compilation. 
+This is a quick little boilerplate using Gulp to streamline jade, stylus and coffeescript compilation. Zurb's foundation is included in this build. 
 
 Instructions: 
 
