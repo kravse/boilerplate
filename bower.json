@@ -1,0 +1,16 @@
+{
+  "name": "boilerplate",
+  "description": "boilerplate",
+  "dependencies": {
+    "jquery": "1.*",
+    "modernizr": "*",
+    "imagesloaded": "*",
+    "fastclick": "*",
+    "foundation": "*"
+  },
+  "overrides": {
+    "foundation": {
+      "ignore": true
+    }
+  }
+}
