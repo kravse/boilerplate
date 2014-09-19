@@ -14,5 +14,5 @@ Instructions:
 4) Optional: Run gulp watch to poll for changes. 
 
 
-Live Reload: Download the livereload plugin for your browser at: https://chrome.google.com/webstore/detail/livereload/jnihajbhpnppcggbcgedagnkighmdlei?hl=en
+In order to use the Live Reload functionanlity, download the livereload plugin for your browser at: https://chrome.google.com/webstore/detail/livereload/jnihajbhpnppcggbcgedagnkighmdlei?hl=en
 
