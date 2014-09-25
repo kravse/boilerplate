@@ -46,8 +46,8 @@ paths           =
     images        : './src/images/**/*.{gif,png,jpeg,jpg}'
     templates     : './src/**/*.jade'
     foundation    :
-      javascript  : './src/scripts/vendor/foundation/foundation.js'
-      css         : './src/styles/libraries/foundation.css'
+      javascript  : './bower_components/foundation/js/foundation.js'
+      css         : './bower_components/foundation/css/foundation.css'
   build           :
     scripts       : './www/scripts/'
     styles        : './www/styles/'
