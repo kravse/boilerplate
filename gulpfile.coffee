@@ -47,7 +47,7 @@ paths           =
     templates     : './src/**/*.jade'
     foundation    :
       javascript  : './bower_components/foundation/js/foundation.js'
-      css         : './bower_components/foundation/css/foundation.css'
+      css         : './src/styles/libraries/foundation.css'
   build           :
     scripts       : './www/scripts/'
     styles        : './www/styles/'
