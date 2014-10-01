@@ -14,6 +14,7 @@ defaultTasks    = ['scripts', 'styles', 'images', 'templates']
 jade            = require('jade')
 gulp 			      = require('gulp')
 uglify          = require('gulp-uglify')
+minify          = require('gulp-minify-css')
 plugins 		    = require('gulp-load-plugins')()
 bower           = require('main-bower-files')
 nib             = require('nib')
@@ -47,7 +48,7 @@ paths           =
     templates     : './src/**/*.jade'
     foundation    :
       javascript  : './bower_components/foundation/js/foundation.js'
-      css         : './src/styles/libraries/foundation.css'
+      css         : './bower_components/foundation/css/foundation.css'
   build           :
     scripts       : './www/scripts/'
     styles        : './www/styles/'
@@ -78,6 +79,7 @@ gulp.task 'styles', () ->
 
   # Create Libs
   libs
+    .pipe(minify({keepBreaks:false}))
     .pipe(plugins.rename('libs.min.css'))
     .on('error', errorHandler)
     .pipe(gulp.dest(paths.build.styles))
@@ -85,6 +87,7 @@ gulp.task 'styles', () ->
 
   # Create Main
   main
+    .pipe(minify({keepBreaks:false}))
     .pipe(plugins.rename('main.min.css'))
     .on('error', errorHandler)
     .pipe(gulp.dest(paths.build.styles))
@@ -98,7 +101,7 @@ gulp.task 'templates', () ->
 
   gulp.src(paths.src.templates)
     .on('error', errorHandler)
-    .pipe(plugins.jade({ pretty: true }))
+    .pipe(plugins.jade({ pretty: false }))
     .pipe(gulp.dest(paths.build.templates))
 
 # -----------------------------------------------------------------
