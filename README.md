@@ -16,6 +16,22 @@ Instructions:
 
 4) Optional: Run gulp watch to poll for changes. 
 
+Currently the setup minifies and uglifies the css and js. If you want more readable source code do the following: 
+
+In gulpfile.coffee:
+
+CSS: 
+Remove all instances of .pipe(minify({keepBreaks:false}))
+
+JS: 
+Remove all instances of .pipe(uglify())
+
+JADE: 
+Change .pipe(plugins.jade({ pretty: false })) to .pipe(plugins.jade({ pretty: true }))
+
+
+
+
 
 In order to use the Live Reload functionanlity, download the livereload plugin for your browser at: https://chrome.google.com/webstore/detail/livereload/jnihajbhpnppcggbcgedagnkighmdlei?hl=en
 
