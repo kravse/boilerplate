@@ -20,4 +20,17 @@ media($condition = 'screen', $length = 0)
     @media $condition
       {block}
 
+// Clear Fix
+
+.cf:before,
+.cf:after
+  content: ' '
+  display: table
+
+.cf:after
+  clear: both
+
+.cf
+  *zoom: 1
+
 
