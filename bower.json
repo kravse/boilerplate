@@ -5,13 +5,7 @@
     "jquery": "1.*",
     "modernizr": "*",
     "imagesloaded": "*",
-    "fastclick": "*",
-    "foundation": "*"
-  },
-  "overrides": {
-    "foundation": {
-      "ignore": true
-    }
+    "fastclick": "*"
   },
   "resolutions": {
     "jquery": "= 2.1.0"

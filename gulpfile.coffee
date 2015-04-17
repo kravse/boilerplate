@@ -18,6 +18,7 @@ minify          = require('gulp-minify-css')
 plugins 		    = require('gulp-load-plugins')()
 bower           = require('main-bower-files')
 nib             = require('nib')
+jeet            = require('jeet');
 
 # --------------------------------------
 # Handlers
@@ -46,9 +47,6 @@ paths           =
     styles        : './src/styles/styles.styl'
     images        : './src/images/**/*.{gif,png,jpeg,jpg}'
     templates     : './src/**/*.jade'
-    foundation    :
-      javascript  : './bower_components/foundation/js/foundation.js'
-      css         : './bower_components/foundation/css/foundation.css'
   build           :
     scripts       : './www/scripts/'
     styles        : './www/styles/'
@@ -73,20 +71,23 @@ gulp.task('default', defaultTasks)
 gulp.task 'styles', () ->
 
   # Define
-  libs  = gulp.src(paths.src.foundation.css)
-  main  = gulp.src(paths.src.styles).pipe(plugins.stylus(use: [nib()]))
-
+  # libs  = gulp.src()
+  main  = gulp.src(paths.src.styles)
 
   # Create Libs
-  libs
-    .pipe(minify({keepBreaks:false}))
-    .pipe(plugins.rename('libs.min.css'))
-    .on('error', errorHandler)
-    .pipe(gulp.dest(paths.build.styles))
-    .pipe(plugins.livereload( auto: false ))
+  # libs
+  #   .pipe(minify({keepBreaks:false}))
+  #   .pipe(plugins.rename('libs.min.css'))
+  #   .on('error', errorHandler)
+  #   .pipe(gulp.dest(paths.build.styles))
+  #   .pipe(plugins.livereload( auto: false ))
 
   # Create Main
   main
+    .pipe(plugins.stylus(use: [
+      nib(), 
+      jeet()
+    ]))
     .pipe(minify({keepBreaks:false}))
     .pipe(plugins.rename('main.min.css'))
     .on('error', errorHandler)
@@ -111,7 +112,7 @@ gulp.task 'templates', () ->
 gulp.task 'scripts', () ->
   # Libraries
   files = bower()
-  files = files.concat([paths.src.foundation.javascript])
+  # files = files.concat([])
 
   gulp.src(files)
     .pipe(plugins.concat('libs.min.js'))
