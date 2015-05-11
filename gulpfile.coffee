@@ -71,7 +71,7 @@ gulp.task('default', defaultTasks)
 gulp.task 'styles', () ->
 
   # Define
-  # libs  = gulp.src()
+  # libs  = gulp.src(paths.src.libs)
   main  = gulp.src(paths.src.styles)
 
   # Create Libs
