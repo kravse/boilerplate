@@ -47,8 +47,10 @@ paths           =
     styles        : './src/styles/styles.styl'
     images        : './src/images/**/*.{gif,png,jpeg,jpg}'
     templates     : './src/**/*.jade'
+    jquery        : './node_modules/jquery/dist/jquery.min.js' #['','']
   build           :
     scripts       : './www/scripts/'
+    vendor        : './www/scripts/vendor/'
     styles        : './www/styles/'
     images        : './www/images/'
     templates     : './www/'
@@ -111,15 +113,20 @@ gulp.task 'templates', () ->
 
 gulp.task 'scripts', () ->
   # Libraries
-  files = bower()
+  # files = paths.src.scriptLibs
   # files = files.concat([])
 
-  gulp.src(files)
-    .pipe(plugins.concat('libs.min.js'))
-    .on('error', errorHandler)
-    .pipe(uglify())
-    .pipe(gulp.dest(paths.build.scripts))
-    .pipe(plugins.livereload( auto: false ))
+  # gulp.src(files)
+  #   .pipe(plugins.concat('libs.min.js'))
+  #   .on('error', errorHandler)
+  #   .pipe(uglify())
+  #   .pipe(gulp.dest(paths.build.scripts))
+  #   .pipe(plugins.livereload( auto: false ))
+
+  #jQuery backup
+  gulp.src(paths.src.jquery)
+    .pipe(plugins.rename('jquery.js'))
+    .pipe(gulp.dest(paths.build.vendor))
 
   # Main Scripts
   gulp.src(paths.src.scripts)
