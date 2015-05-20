@@ -11,12 +11,11 @@
 # -----------------------------------------------------------------
 
 defaultTasks    = ['scripts', 'styles', 'images', 'templates']
-jade            = require('jade')
+# jade            = require('jade')
 gulp 			      = require('gulp')
 uglify          = require('gulp-uglify')
 minify          = require('gulp-minify-css')
 plugins 		    = require('gulp-load-plugins')()
-bower           = require('main-bower-files')
 nib             = require('nib')
 jeet            = require('jeet');
 
