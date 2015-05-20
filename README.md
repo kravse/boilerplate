@@ -1,8 +1,7 @@
 boilerplate
 ===========
 
-Boilerplate with Gulp Bower Jade Stylus and CoffeeScript 
-
+Boilerplate with Gulp Jade Stylus and CoffeeScript 
 
 This is a quick little boilerplate using [Gulp](http://gulpjs.com/) to streamline [Jade](http://jade-lang.com/), [Stylus](https://learnboost.github.io/stylus/) and [CoffeeScript](http://coffeescript.org/) compilation. [Jeet](http://jeet.gs/) is included for responsive grid functionality. 
 
@@ -10,11 +9,9 @@ Instructions:
 
 1) In the project root, run 'npm install'
 
-2) In the project root, run 'bower install'
+2) Run gulp to compile all static assets from 'src' into their build destinations. 
 
-3) Run gulp to compile all static assets from 'src' into their build destinations. 
-
-4) Optional: Run gulp watch to poll for changes. 
+3) Optional: Run gulp watch to poll for changes. 
 
 Currently the setup minifies and uglifies the css and js. If you want more readable source code do the following: 
 
