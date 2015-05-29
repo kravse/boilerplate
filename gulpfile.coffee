@@ -11,7 +11,6 @@
 # -----------------------------------------------------------------
 
 defaultTasks    = ['scripts', 'styles', 'images', 'templates']
-# jade            = require('jade')
 gulp 			      = require('gulp')
 uglify          = require('gulp-uglify')
 minify          = require('gulp-minify-css')
@@ -46,7 +45,9 @@ paths           =
     styles        : './src/styles/styles.styl'
     images        : './src/images/**/*.{gif,png,jpeg,jpg}'
     templates     : './src/**/*.jade'
-    jquery        : './node_modules/jquery/dist/jquery.min.js' #['','']
+    # libs        : ['', '']
+    # scriptLibs  : ['', '']
+    jquery        : './node_modules/jquery/dist/jquery.min.js'
   build           :
     scripts       : './www/scripts/'
     vendor        : './www/scripts/vendor/'
@@ -159,7 +160,5 @@ gulp.task 'watch', () ->
 
   # Watch Files & Kick-off Tasks
   gulp.watch(paths.watch.templates, ['templates']).on('error', errorHandler)
-  gulp.watch(paths.watch.images, ['images']).on('error', errorHandler)
   gulp.watch(paths.watch.styles, ['styles']).on('error', errorHandler)
   gulp.watch(paths.watch.scripts, ['scripts']).on('error', errorHandler)
-
