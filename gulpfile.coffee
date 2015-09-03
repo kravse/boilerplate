@@ -13,7 +13,6 @@
 defaultTasks    = ['scripts', 'styles', 'images', 'templates']
 gulp 			      = require('gulp')
 uglify          = require('gulp-uglify')
-minify          = require('gulp-minify-css')
 plugins 		    = require('gulp-load-plugins')()
 nib             = require('nib')
 jeet            = require('jeet');
@@ -78,7 +77,7 @@ gulp.task 'styles', () ->
 
   # Create Libs
   # libs
-  #   .pipe(minify({keepBreaks:false}))
+  #   .pipe(plugins.minifyCss({keepBreaks:false}))
   #   .pipe(plugins.rename('libs.min.css'))
   #   .on('error', errorHandler)
   #   .pipe(gulp.dest(paths.build.styles))
@@ -90,7 +89,7 @@ gulp.task 'styles', () ->
       nib(), 
       jeet()
     ]))
-    .pipe(minify({keepBreaks:false}))
+    .pipe(plugins.minifyCss({keepBreaks:false}))
     .pipe(plugins.rename('main.min.css'))
     .on('error', errorHandler)
     .pipe(gulp.dest(paths.build.styles))
