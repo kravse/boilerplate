@@ -81,7 +81,6 @@ gulp.task 'styles', () ->
   #   .pipe(plugins.rename('libs.min.css'))
   #   .on('error', errorHandler)
   #   .pipe(gulp.dest(paths.build.styles))
-  #   .pipe(plugins.livereload( auto: false ))
 
   # Create Main
   main
@@ -93,7 +92,6 @@ gulp.task 'styles', () ->
     .pipe(plugins.rename('main.min.css'))
     .on('error', errorHandler)
     .pipe(gulp.dest(paths.build.styles))
-    .pipe(plugins.livereload( auto: false ))
 
 # --------------------------------------
 # Templates Task
@@ -120,7 +118,6 @@ gulp.task 'scripts', () ->
   #   .on('error', errorHandler)
   #   .pipe(uglify())
   #   .pipe(gulp.dest(paths.build.scripts))
-  #   .pipe(plugins.livereload( auto: false ))
 
   #jQuery backup
   gulp.src(paths.src.jquery)
@@ -134,7 +131,6 @@ gulp.task 'scripts', () ->
     .on('error', errorHandler)
     .pipe(uglify())
     .pipe(gulp.dest(paths.build.scripts))
-    .pipe(plugins.livereload( auto: false ))
 
 
 # --------------------------------------
@@ -154,8 +150,6 @@ gulp.task 'images', () ->
 
 gulp.task 'watch', () ->
 
-  # Livereload
-  plugins.livereload.listen()
 
   # Watch Files & Kick-off Tasks
   gulp.watch(paths.watch.templates, ['templates']).on('error', errorHandler)

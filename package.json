@@ -21,7 +21,6 @@
     "gulp-util": "*",
     "gulp-load-plugins": "*",
     "gulp-concat": "*",
-    "gulp-livereload": "*",
     "gulp-imagemin": "*",
     "gulp-jade": "*",
     "gulp-rename": "*", 
