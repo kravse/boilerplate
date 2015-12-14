@@ -29,9 +29,6 @@
     "coffee-script": "*",
     "nib": "*"
   },
-  "peerDependencies": {
-    "grunt": "~0.4.0"
-  },
   "keywords": [],
   "readmeFilename": "README.md",
   "license": "BSD"
