@@ -15,7 +15,9 @@ gulp 			      = require('gulp')
 uglify          = require('gulp-uglify')
 plugins 		    = require('gulp-load-plugins')()
 nib             = require('nib')
-jeet            = require('jeet');
+jeet            = require('jeet')
+pug             = require('gulp-pug')
+cleanCSS        = require('gulp-clean-css')
 
 # --------------------------------------
 # Handlers
@@ -43,9 +45,9 @@ paths           =
     scripts       : './src/scripts/**/*.coffee'
     styles        : './src/styles/styles.styl'
     images        : './src/images/**/*.{gif,png,jpeg,jpg}'
-    templates     : './src/**/*.jade'
-    # libs        : ['', '']
-    # scriptLibs  : ['', '']
+    templates     : './src/**/*.pug'
+    styleLibs        : ['', '']
+    scriptLibs  : ['', '']
     jquery        : './node_modules/jquery/dist/jquery.min.js'
   build           :
     scripts       : './www/scripts/'
@@ -56,7 +58,7 @@ paths           =
   watch           :
     scripts       : './src/**/*.{js,coffee}'
     styles        : './src/**/*.styl'
-    templates     : './src/**/*.jade'
+    templates     : './src/**/*.pug'
 
 
 # -----------------------------------------------------------------
@@ -72,24 +74,31 @@ gulp.task('default', defaultTasks)
 gulp.task 'styles', () ->
 
   # Define
-  # libs  = gulp.src(paths.src.libs)
   main  = gulp.src(paths.src.styles)
-
-  # Create Libs
-  # libs
-  #   .pipe(plugins.minifyCss({keepBreaks:false}))
-  #   .pipe(plugins.rename('libs.min.css'))
-  #   .on('error', errorHandler)
-  #   .pipe(gulp.dest(paths.build.styles))
 
   # Create Main
   main
     .pipe(plugins.stylus(use: [
-      nib(), 
+      nib(),
       jeet()
     ]))
-    .pipe(plugins.minifyCss({keepBreaks:false}))
+    .pipe(cleanCSS())
     .pipe(plugins.rename('main.min.css'))
+    .on('error', errorHandler)
+    .pipe(gulp.dest(paths.build.styles))
+
+# --------------------------------------
+# Style Libraries Task
+# --------------------------------------
+
+gulp.task 'styleLibs', () ->
+
+  libs  = gulp.src(paths.src.styleLibs)
+
+  # Create Libs
+  libs
+    .pipe(cleanCSS())
+    .pipe(plugins.rename('libs.min.css'))
     .on('error', errorHandler)
     .pipe(gulp.dest(paths.build.styles))
 
@@ -101,7 +110,7 @@ gulp.task 'templates', () ->
 
   gulp.src(paths.src.templates)
     .on('error', errorHandler)
-    .pipe(plugins.jade({ pretty: false }))
+    .pipe(pug({ pretty: false }))
     .pipe(gulp.dest(paths.build.templates))
 
 # -----------------------------------------------------------------
@@ -109,20 +118,6 @@ gulp.task 'templates', () ->
 # -----------------------------------------------------------------
 
 gulp.task 'scripts', () ->
-  # Libraries
-  # files = paths.src.scriptLibs
-  # files = files.concat([])
-
-  # gulp.src(files)
-  #   .pipe(plugins.concat('libs.min.js'))
-  #   .on('error', errorHandler)
-  #   .pipe(uglify())
-  #   .pipe(gulp.dest(paths.build.scripts))
-
-  #jQuery backup
-  gulp.src(paths.src.jquery)
-    .pipe(plugins.rename('jquery.js'))
-    .pipe(gulp.dest(paths.build.vendor))
 
   # Main Scripts
   gulp.src(paths.src.scripts)
@@ -131,6 +126,31 @@ gulp.task 'scripts', () ->
     .on('error', errorHandler)
     .pipe(uglify())
     .pipe(gulp.dest(paths.build.scripts))
+
+# --------------------------------------
+# Script Libraries Task
+# --------------------------------------
+
+gulp.task 'scriptLibs', () ->
+  files = paths.src.scriptLibs
+  files = files.concat([])
+
+  #jQuery backup
+  gulp.src(paths.src.jquery)
+    .pipe(plugins.rename('jquery.js'))
+    .pipe(gulp.dest(paths.build.vendor))
+
+  gulp.src(files)
+    .pipe(plugins.concat('libs.min.js'))
+    .on('error', errorHandler)
+    .pipe(uglify())
+    .pipe(gulp.dest(paths.build.scripts))
+
+  #jQuery backup
+  gulp.src(paths.src.jquery)
+    .pipe(plugins.rename('jquery.js'))
+    .pipe(gulp.dest(paths.build.vendor))
+
 
 
 # --------------------------------------

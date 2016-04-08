@@ -14,7 +14,7 @@
   },
   "devDependencies": {
     "jquery": "2.1.4",
-    "jade": "*",
+    "pug": "*",
     "jeet": "*",
     "gulp": "*",
     "gulp-stylus": "*",
@@ -22,10 +22,10 @@
     "gulp-load-plugins": "*",
     "gulp-concat": "*",
     "gulp-imagemin": "*",
-    "gulp-jade": "*",
-    "gulp-rename": "*", 
+    "gulp-pug": "1.1.0",
+    "gulp-rename": "*",
     "gulp-coffee": "*",
-    "gulp-minify-css": "*",
+    "gulp-clean-css": "*",
     "coffee-script": "*",
     "nib": "*"
   },
