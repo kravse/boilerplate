@@ -46,8 +46,8 @@ paths           =
     styles        : './src/styles/styles.styl'
     images        : './src/images/**/*.{gif,png,jpeg,jpg}'
     templates     : './src/**/*.pug'
-    styleLibs        : ['', '']
-    scriptLibs  : ['', '']
+    # styleLibs     : ['', '']
+    # scriptLibs    : ['', '']
     jquery        : './node_modules/jquery/dist/jquery.min.js'
   build           :
     scripts       : './www/scripts/'
