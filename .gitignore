@@ -40,6 +40,7 @@ Thumbs.db
 tmp/shared/*
 node_modules/
 bower_components/
+www/
 
 Gemfile.lock
 
