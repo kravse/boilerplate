@@ -33,7 +33,7 @@ Icon?
 ehthumbs.db
 Thumbs.db
 
-# Foundation Stuff #
+# Other #
 ####################
 .sass-cache
 *.vagrant
