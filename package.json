@@ -4,6 +4,10 @@
   "version": "0.0.1",
   "homepage": "",
   "author": "",
+  "repository" :{
+    "type" : "git",
+    "url" : ""
+  },
   "main": "build.js",
   "engines": {
     "node": ">= 0.8.0"
@@ -31,5 +35,5 @@
   },
   "keywords": [],
   "readmeFilename": "README.md",
-  "license": "BSD"
+  "license": "0BSD"
 }
